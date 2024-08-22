@@ -1,13 +1,16 @@
 def f(x):
-    return x ** 2 + 2 * x + 1
+    return x**2 + 2 * x + 1
+
 
 def deriv(func, x):
     e = pow(10, -6)
     return (func(x + e) - func(x)) / e
 
+
 def sec_deriv(func, x):
     e = pow(10, -6)
     return (deriv(func, x + e) - deriv(func, x)) / e
+
 
 def newton(func):
     new = 0
@@ -19,5 +22,6 @@ def newton(func):
         second_order = sec_deriv(func, new)
         new = preb - first_order / second_order
     return new
+
 
 newton(f)
