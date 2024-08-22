@@ -1,5 +1,5 @@
 def f(x):
-    return x**2 + 2 * x + 1  #Just example. You can
+    return x**4 / 4 - x**3 - x
 
 
 def deriv(func, x):
@@ -16,7 +16,7 @@ def sec_deriv(func, x):
     This function takes second-order derivative.
     e = scalar (significantly small number)
     """
-    e = pow(10, -6)   # significantly 
+    e = pow(10, -6)  # significantly
     return (deriv(func, x + e) - deriv(func, x)) / e
 
 
@@ -26,9 +26,9 @@ def newton(func):
     new = new x candidate (0 is the primer.)
     preb = prebious x candidate (100 is the primer.)
     p = scalar (significantly small number)
-    once the difference between new and preb reaches smaller than p, the cycle ends. 
+    once the difference between new and preb reaches smaller than p, the cycle ends.
     """
-    new = 0
+    new = 5
     preb = 100
     p = pow(10, -6)
     while abs(new - preb) > p:
