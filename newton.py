@@ -24,7 +24,7 @@ def optimize(func, x_min, x_max, nloop):
     and print x, f(x), and the probability density of x.
 
     Inputs:
-    x_min, x_max: range of finding extremums.
+    x_min, x_max: range of finding extreme values.
      (Note: outrange extremums may be found.)
     nloop: number of loops
     """
