@@ -7,12 +7,12 @@ def f(x):
 
 
 def deriv(func, x):
-    e = pow(10, -6)
+    e = pow(10, -7)
     return (func(x + e) - func(x)) / e
 
 
 def sec_deriv(func, x):
-    e = pow(10, -6)
+    e = pow(10, -7)
     return (deriv(func, x + e) - deriv(func, x)) / e
 
 
