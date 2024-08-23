@@ -18,9 +18,9 @@ def sec_deriv(func, x):
 
 def optimize(func, x_min, x_max, nloop):
     """
-    Function for finding possible extreme values within (and near) 
+    Function for finding possible extreme values within (and near)
     the designated range of x (x_min ~ x_max).
-    It repeats Newton's Method for "nloop" times (< 100,000 times) 
+    It repeats Newton's Method for "nloop" times (< 100,000 times)
     and print x, f(x), and the probability density of x.
 
     Inputs:
@@ -28,11 +28,10 @@ def optimize(func, x_min, x_max, nloop):
      (Note: outrange extremums may be found.)
     nloop: number of loops
     """
-    
+
     if nloop > 100000:
         raise RuntimeError(f"At loops {nloop}, calculation takes too long time")
 
-    
     n = 0
     x_list = []
     fx_list = []
@@ -73,24 +72,24 @@ def optimize(func, x_min, x_max, nloop):
             ans_dic[temp] = [fx_list[i], 1]
         else:
             ans_dic[temp][1] += 1
-    
-    ans_df = pd.DataFrame(columns = ['x', 'fx', 'density'])
+
+    ans_df = pd.DataFrame(columns=["x", "fx", "density"])
 
     for mykey, myvalue in ans_dic.items():
         ans_df.loc[str(mykey)] = [mykey, myvalue[0], myvalue[1]]
 
-    ans_df = ans_df.sort_values('density', ascending = False)
-    ans_df['density'] = ans_df['density'] / sum(ans_df['density']) 
+    ans_df = ans_df.sort_values("density", ascending=False)
+    ans_df["density"] = ans_df["density"] / sum(ans_df["density"])
     ans_sum = 0
     ans_count = 0
 
     while ans_sum < 0.8:
         ans_sum += ans_df.iloc[ans_count, 2]
         ans_count += 1
-    
+
     ans_df2 = ans_df[:ans_count]
-    ans_df2 = ans_df2.sort_values('fx')
-    
+    ans_df2 = ans_df2.sort_values("fx")
+
     for i in range(ans_df2.shape[0]):
         print(
             "x: ",
