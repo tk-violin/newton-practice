@@ -104,12 +104,10 @@ def optimize(func, x_min, x_max, nloop):
     return ans_df2
 
 
-ans1 = optimize(f, -10, 10, 10000)
-ans2 = optimize(np.sin, -10, 10, 10000)
+optimize(f, -10, 10, 10000)
+optimize(np.sin, -10, 10, 10000)
 
 
-def g(x):
-    return x
-
-
-and3 = optimize(g, -10, 10, 10000)
+# def g(x):
+#    return x
+# optimize(g, -10, 10, 10000)
